@@ -272,10 +272,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldGrid: {fileID: 2042983014}
-  RoomPrefab: {fileID: 3910410183286702000, guid: 0afeb2b0ffdb0eb4bac841a8ee933780, type: 3}
+  RoomTypes:
+  - {fileID: 3910410183286702000, guid: 0afeb2b0ffdb0eb4bac841a8ee933780, type: 3}
+  - {fileID: 3910410183286702000, guid: d25b9d1ad4b66ad43b7c2fa5cf170c24, type: 3}
+  - {fileID: 3910410183286702000, guid: 09dd5655c26d42f469dd3c70e9d26447, type: 3}
+  - {fileID: 3910410183286702000, guid: f49ff00ab37d77d43bd56b71a8d6fa6f, type: 3}
+  - {fileID: 3910410183286702000, guid: c09c5503f637b10498af7c2350c303ef, type: 3}
+  - {fileID: 3910410183286702000, guid: e501558410a92d74d825c17ab8d488ca, type: 3}
   mapSize: 16
   MapSizeSlider: {fileID: 1521261313}
   GenerateButton: {fileID: 1194507145}
+  E_Room: {fileID: 3910410183286702000, guid: f7e77a6e69d1b764c9112afb428cfdb7, type: 3}
+  mapEmptiness: 9
+  roomSize: 7
 --- !u!1 &375079190
 GameObject:
   m_ObjectHideFlags: 0

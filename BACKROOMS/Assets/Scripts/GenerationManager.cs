@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class GenerationManager : MonoBehaviour
 {
     [SerializeField] Transform WorldGrid;
-    [SerializeField] GameObject RoomPrefab;
+
+    [SerializeField] List<GameObject> RoomTypes;
 
     [SerializeField] int mapSize = 16; //the square root needs to be int
 
@@ -14,9 +15,13 @@ public class GenerationManager : MonoBehaviour
 
     [SerializeField] Button GenerateButton;
 
+    [SerializeField] GameObject E_Room; //empty room
+
+    public int mapEmptiness; //chance of empty room spawning in
+
     private int mapSizeSquare;
 
-    private float roomSize = 7;
+    public float roomSize = 7;
 
     private Vector3 currentPos;
 
@@ -38,6 +43,12 @@ public class GenerationManager : MonoBehaviour
 
     public void GenerateWorld()
     {
+
+        for(int i=0; i< mapEmptiness; i++)
+        {
+            RoomTypes.Add(E_Room);
+        }
+
         GenerateButton.interactable = false;
 
         for(int i = 0; i < mapSize; i++)
@@ -52,7 +63,7 @@ public class GenerationManager : MonoBehaviour
 
             }
             currentPos = new(currentPosX, 0, currentPosZ);
-            Instantiate(RoomPrefab,currentPos, Quaternion.identity, WorldGrid);
+            Instantiate(RoomTypes[Random.Range(0, RoomTypes.Count)],currentPos, Quaternion.identity, WorldGrid);
 
 
             currentPosTracker++;
