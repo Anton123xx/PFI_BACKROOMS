@@ -13,7 +13,8 @@ public enum GenerationState
     GeneratingRooms,
     GeneratingLighting,
     GeneratingSpawn,
-    GeneratingExit
+    GeneratingExit,
+    GeneratingBarrier
 }
 
 
@@ -34,9 +35,13 @@ public class GenerationManager : MonoBehaviour
 
     [SerializeField] GameObject E_Room; //empty room
 
+    [SerializeField] GameObject B_Room; //barrier
+
     [SerializeField] GameObject SpawnRoom, ExitRoom;
 
     public List<GameObject> GeneratedRooms;
+
+    [SerializeField] GameObject PlayerObject, MainCameraObject;
 
 
     [Header("Settings")]
@@ -46,7 +51,7 @@ public class GenerationManager : MonoBehaviour
 
     private int mapSizeSquare;
 
-    private float currentPosX, currentPosZ, currentPosTracker;
+    private float currentPosX, currentPosZ, currentPosTracker, currentRoom;
 
     public float roomSize = 7;
 
@@ -82,18 +87,25 @@ public class GenerationManager : MonoBehaviour
 
         GenerateButton.interactable = false;
 
-        for (int state = 0; state < 5; state++)
+        for (int state = 0; state < 6; state++)
         {
             for (int i = 0; i < mapSize; i++)
             {
 
                 if (currentPosTracker == mapSizeSquare)
                 {
+                    if(currentState == GenerationState.GeneratingBarrier)//right of map
+                    {
+                        GenerateBarrier();
+                    }
                     currentPosX = 0;
                     currentPosTracker = 0;
 
                     currentPosZ += roomSize;
-
+                    if (currentState == GenerationState.GeneratingBarrier)//left of map
+                    {
+                        GenerateBarrier();
+                    }
                 }
 
                 currentPos = new(currentPosX, 0, currentPosZ);
@@ -112,11 +124,23 @@ public class GenerationManager : MonoBehaviour
                             Instantiate(LightTypes[Random.Range(0, LightTypes.Count)], currentPos, Quaternion.identity, WorldGrid);
                         }
                         break;
-                   
+                    case GenerationState.GeneratingBarrier:
+                
+                        if(currentRoom <= mapSizeSquare && currentRoom >= 0)
+                        {
+                            GenerateBarrier(); //bottom
+                        }
+
+                        if(currentRoom <= mapSize && currentRoom >= mapSize - mapSizeSquare)
+                        {
+                            GenerateBarrier(); //top
+                        }
+                        break;
+
                 }
 
 
-
+                currentRoom++;
                 currentPosTracker++;
                 currentPosX += roomSize;
             }
@@ -129,7 +153,7 @@ public class GenerationManager : MonoBehaviour
                     int _roomToReplace = Random.Range(0, GeneratedRooms.Count);
 
 
-                    GameObject spawnRoom = Instantiate(SpawnRoom, GeneratedRooms[_roomToReplace].transform.position, Quaternion.identity, WorldGrid);
+                    spawnRoom = Instantiate(SpawnRoom, GeneratedRooms[_roomToReplace].transform.position, Quaternion.identity, WorldGrid);
 
                     Destroy(GeneratedRooms[_roomToReplace]);
 
@@ -154,7 +178,17 @@ public class GenerationManager : MonoBehaviour
 
 
     }
+    public GameObject spawnRoom;
+    public void SpawnPlayer()
+    {
 
+        PlayerObject.SetActive(false);
+
+        PlayerObject.transform.position = new Vector3(spawnRoom.transform.position.x, 1.8f, spawnRoom.transform.position.z);
+
+        PlayerObject.SetActive(true);
+        MainCameraObject.SetActive(false);  
+    }
 
     public void NextState()
     {
@@ -165,9 +199,29 @@ public class GenerationManager : MonoBehaviour
         currentPosZ = 0;
         currentPosTracker = 0;
         currentPos = Vector3.zero;
+        currentRoom = 0;
     }
 
 
 
+    public void WinGame()
+    {
+        MainCameraObject.SetActive(true);
+        PlayerObject.SetActive(false);
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        Debug.Log("WINNNN");
+    }
+
+
+    public void GenerateBarrier()
+    {
+        currentPos = new(currentPosX, 0, currentPosZ);
+
+        Instantiate(B_Room, currentPos, Quaternion.identity, WorldGrid);
+
+        
+    }
 }
