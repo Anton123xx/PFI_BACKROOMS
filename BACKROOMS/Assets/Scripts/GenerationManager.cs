@@ -41,7 +41,8 @@ public class GenerationManager : MonoBehaviour
 
     public List<GameObject> GeneratedRooms;
 
-    [SerializeField] GameObject PlayerObject, MainCameraObject;
+    [SerializeField] GameObject PlayerObject, playerCanvas, MainCameraObject;
+    
 
 
     [Header("Settings")]
@@ -185,7 +186,7 @@ public class GenerationManager : MonoBehaviour
         PlayerObject.SetActive(false);
 
         PlayerObject.transform.position = new Vector3(spawnRoom.transform.position.x, 1.8f, spawnRoom.transform.position.z);
-
+        playerCanvas.SetActive(true);
         PlayerObject.SetActive(true);
         MainCameraObject.SetActive(false);  
     }
