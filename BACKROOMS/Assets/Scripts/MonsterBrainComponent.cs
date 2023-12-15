@@ -67,6 +67,9 @@ public class MonsterBrainComponent : MonoBehaviour
         nodes[2] = GameObject.FindGameObjectWithTag("N2");
         nodes[3] = GameObject.FindGameObjectWithTag("N3");
 
+        animator.SetTrigger("MOVE");
+
+
     }
 
     private void Update()

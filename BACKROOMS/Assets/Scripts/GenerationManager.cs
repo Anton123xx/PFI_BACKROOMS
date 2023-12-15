@@ -47,8 +47,8 @@ public class GenerationManager : MonoBehaviour
     public List<GameObject> GeneratedRooms;
 
     [SerializeField] GameObject PlayerObject, playerCanvas, MainCameraObject, MonsterObject;
-    
 
+    [SerializeField] GameObject surface;
 
     [Header("Settings")]
     public int mapEmptiness; //chance of empty room spawning in
@@ -177,6 +177,8 @@ public class GenerationManager : MonoBehaviour
                     Destroy(GeneratedRooms[roomToReplace]);
 
                     GeneratedRooms[roomToReplace] = exitRoom;
+
+                    SpawnMonster();
                     break;
                 case GenerationState.GeneratingPatrolRooms:
 
@@ -208,12 +210,15 @@ public class GenerationManager : MonoBehaviour
             }
         }
 
-
+        ///BuildNavMesh();
 
     }
     public GameObject spawnRoom;
+    public GameObject monsterSpawnRoom;//exit
     public void SpawnPlayer()
     {
+
+       
 
         PlayerObject.SetActive(false);
 
@@ -225,26 +230,36 @@ public class GenerationManager : MonoBehaviour
 
 
         //spawn de monster
-        //BuildNavMesh();
-        SpawnMonster();
+        //SpawnMonster();
+        BuildNavMesh();
+        //Activates monster
+        MonsterObject.SetActive(true);
     }
 
-    //public void BuildNavMesh()
-    //{
-    //   GameObject
+    public void BuildNavMesh()
+    {
 
-    //}
+        surface.transform.position = MonsterObject.transform.position;
+        surface.SetActive(true);
+        surface.GetComponent<NavMeshSurface>().BuildNavMesh();
+
+    }
 
 
     public void SpawnMonster()
     {
 
-        MonsterObject.SetActive(false);
+        //MonsterObject.SetActive(false);
 
-        MonsterObject.transform.position = new Vector3(spawnRoom.transform.position.x, 1.8f, spawnRoom.transform.position.z);
-        //playerCanvas.SetActive(true);
-        MonsterObject.SetActive(true);
-        //MainCameraObject.SetActive(false);
+      
+        MonsterObject.transform.position = new Vector3(monsterSpawnRoom.transform.position.x, 1.14f, monsterSpawnRoom.transform.position.z);
+
+
+        ////buids navmesh for monster
+        //BuildNavMesh();
+
+       
+ 
     }
 
 
