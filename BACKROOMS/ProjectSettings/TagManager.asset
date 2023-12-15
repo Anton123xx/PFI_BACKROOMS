@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ladder
+  - N0
+  - N1
+  - N2
+  - N3
   layers:
   - Default
   - TransparentFX
@@ -13,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Hands
-  - 
+  - Player
   - 
   - 
   - 
