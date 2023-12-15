@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.036849, y: 2, z: 1.0243381}
-  m_Center: {x: -0.016453914, y: 0, z: -0.005848612}
+  m_Size: {x: 1.0456814, y: 2, z: 1.0636672}
+  m_Center: {x: 0.00492239, y: 0, z: -0.01832751}
 --- !u!1 &1882167936172282632
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1293500938315978343
 Transform:
@@ -192,8 +192,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0068544, y: 1.5658569, z: 1.0577619}
-  m_Center: {x: -0.0060594426, y: -0.21707153, z: -0.0020044872}
+  m_Size: {x: 1.1548645, y: 1.5552368, z: 1.1089444}
+  m_Center: {x: -0.0373496, y: -0.22238159, z: -0.026010208}
 --- !u!1 &2392576154609445877
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,8 +317,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2437851994222208951}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 5.1675, z: -3.4}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.1675, z: -3.8102}
   m_LocalScale: {x: 7, y: 11.334751, z: 0.62545675}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -326,7 +326,7 @@ Transform:
   - {fileID: 8076464741381550998}
   m_Father: {fileID: 1131176237797096370}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2187684596948767215
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -388,8 +388,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.028749, y: 0.9410755, z: 2}
-  m_Center: {x: -0.012517265, y: 0.023655932, z: 0}
+  m_Size: {x: 1.1022433, y: 0.90952134, z: 2}
+  m_Center: {x: 0.012852601, y: 0.008831293, z: 0}
 --- !u!1 &3910410183286702000
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1131176237797096370}
   m_Layer: 0
-  m_Name: Room_T4
+  m_Name: Room_T1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

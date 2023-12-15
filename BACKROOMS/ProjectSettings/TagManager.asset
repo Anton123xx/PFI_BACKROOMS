@@ -9,6 +9,8 @@ TagManager:
   - N1
   - N2
   - N3
+  - Exit
+  - Spawn
   layers:
   - Default
   - TransparentFX

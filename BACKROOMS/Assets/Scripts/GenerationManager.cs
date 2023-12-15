@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Security.Principal;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Experimental.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,7 +16,8 @@ public enum GenerationState
     GeneratingLighting,
     GeneratingSpawn,
     GeneratingExit,
-    GeneratingBarrier
+    GeneratingBarrier,
+    GeneratingPatrolRooms
 }
 
 
@@ -26,6 +29,8 @@ public class GenerationManager : MonoBehaviour
     [SerializeField] List<GameObject> RoomTypes;
 
     [SerializeField] List<GameObject> LightTypes;
+
+    [SerializeField] List<GameObject> patrolRooms;
 
     [SerializeField] int mapSize = 16; //the square root needs to be int
 
@@ -41,7 +46,7 @@ public class GenerationManager : MonoBehaviour
 
     public List<GameObject> GeneratedRooms;
 
-    [SerializeField] GameObject PlayerObject, playerCanvas, MainCameraObject;
+    [SerializeField] GameObject PlayerObject, playerCanvas, MainCameraObject, MonsterObject;
     
 
 
@@ -88,7 +93,7 @@ public class GenerationManager : MonoBehaviour
 
         GenerateButton.interactable = false;
 
-        for (int state = 0; state < 6; state++)
+        for (int state = 0; state < 7; state++)
         {
             for (int i = 0; i < mapSize; i++)
             {
@@ -173,6 +178,33 @@ public class GenerationManager : MonoBehaviour
 
                     GeneratedRooms[roomToReplace] = exitRoom;
                     break;
+                case GenerationState.GeneratingPatrolRooms:
+
+
+                    foreach(GameObject room in patrolRooms)
+                    {
+                        bool foundValidRoom = false;
+                        int __roomToReplace;
+                        do
+                        {
+                            __roomToReplace = Random.Range(0, GeneratedRooms.Count);
+                            if (GeneratedRooms[__roomToReplace].tag != "Exit" && GeneratedRooms[__roomToReplace].tag != "Spawn")
+                            {
+
+                                foundValidRoom = true;
+                            }
+                        }
+                        while (!foundValidRoom);
+                        
+                        GameObject patrolRoom = Instantiate(room, GeneratedRooms[__roomToReplace].transform.position, Quaternion.identity, WorldGrid);
+
+                        Destroy(GeneratedRooms[__roomToReplace]);
+
+                        GeneratedRooms[__roomToReplace] = patrolRoom;
+                    }
+
+                  
+                    break;
             }
         }
 
@@ -188,8 +220,33 @@ public class GenerationManager : MonoBehaviour
         PlayerObject.transform.position = new Vector3(spawnRoom.transform.position.x, 1.8f, spawnRoom.transform.position.z);
         playerCanvas.SetActive(true);
         PlayerObject.SetActive(true);
-        MainCameraObject.SetActive(false);  
+        MainCameraObject.SetActive(false);
+
+
+
+        //spawn de monster
+        //BuildNavMesh();
+        SpawnMonster();
     }
+
+    //public void BuildNavMesh()
+    //{
+    //   GameObject
+
+    //}
+
+
+    public void SpawnMonster()
+    {
+
+        MonsterObject.SetActive(false);
+
+        MonsterObject.transform.position = new Vector3(spawnRoom.transform.position.x, 1.8f, spawnRoom.transform.position.z);
+        //playerCanvas.SetActive(true);
+        MonsterObject.SetActive(true);
+        //MainCameraObject.SetActive(false);
+    }
+
 
     public void NextState()
     {
