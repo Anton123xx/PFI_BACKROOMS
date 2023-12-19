@@ -72,35 +72,28 @@ public class MonsterBrainComponent : MonoBehaviour
 
     private void Update()
     {
-
-        if (CanSeePlayer())
+        if(Time.timeScale > 0)
         {
-            Charge();
-        }
-
-        if (animator.GetBool("AGRO"))
-        {
-
-
-
-            if (animator.GetBool("CHASE"))
+            if (CanSeePlayer())
             {
-                navMeshAgent.destination = player.transform.position;
-                aS.clip = runLoop;
-                aS.Play();
-                //if (!aS.isPlaying)
-                //{
-                //    aS.PlayOneShot(runLoop);
-                //}
-
+                Charge();
             }
 
+            if (animator.GetBool("AGRO"))
+            {
+                navMeshAgent.destination = player.transform.position;
 
-            navMeshAgent.destination = player.transform.position;
-        }
-        else if (DestinationComplete())
-        {
-            GoToNextNode();
+
+                if (!aS.isPlaying)
+                {
+                    aS.clip = runLoop;
+                    aS.Play();
+                }
+            }
+            else if (DestinationComplete())
+            {
+                GoToNextNode();
+            }
         }
     }
 
@@ -183,8 +176,8 @@ public class MonsterBrainComponent : MonoBehaviour
     private bool CanSeePlayer()
     {
         //transform.LookAt(targetTransform);/////////
-        ray = new Ray(eyes.transform.position, eyes.transform.forward);
-        Debug.DrawRay(eyes.transform.position, eyes.transform.forward * maxDistance);
+        ray = new Ray(transform.position, transform.forward);
+        Debug.DrawRay(transform.position, transform.forward * maxDistance);
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, layerMask))
         {
             //Debug.Log(hit.collider.tag);

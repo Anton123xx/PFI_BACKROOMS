@@ -11,6 +11,8 @@ public class Jumpscare : MonoBehaviour
     public GameObject jumpScareCam;
     public GameObject player;
     public Transform jumpScareCamPos;
+    public GameObject EndMenu;
+    public AudioSource StepSound;
 
     void Start()
     {
@@ -31,7 +33,20 @@ public class Jumpscare : MonoBehaviour
         jumpScareCam.SetActive(true);
         player.SetActive(false);
         yield return new WaitForSeconds(jumpscareTimer);
-        SceneManager.LoadScene(scenename);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+        
+        EndMenu.SetActive(true);
+        StepSound.Stop();
+        player.SetActive(false);
+        Time.timeScale = 0;
+    }
+
+    public void Replay()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Procedural");
+
     }
 
 }

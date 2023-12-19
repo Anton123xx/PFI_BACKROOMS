@@ -780,8 +780,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2569,6 +2569,16 @@ PrefabInstance:
       propertyPath: ItemCanvasLogo
       value: 
       objectReference: {fileID: 1493392462}
+    - target: {fileID: 4582019824381016672, guid: a01c7516e659bdf4b9897ab54df69b69,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582019824381016672, guid: a01c7516e659bdf4b9897ab54df69b69,
+        type: 3}
+      propertyPath: RuningSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4582019824381016673, guid: a01c7516e659bdf4b9897ab54df69b69,
         type: 3}
       propertyPath: m_Name
@@ -2578,6 +2588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582019824381016673, guid: a01c7516e659bdf4b9897ab54df69b69,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4582019824381016678, guid: a01c7516e659bdf4b9897ab54df69b69,
         type: 3}
@@ -2756,6 +2771,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4029538875456467842, guid: 4b5e5514e64b8a04a89bccea1b2de1c7,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1373113815}
+    - target: {fileID: 4029538875456467842, guid: 4b5e5514e64b8a04a89bccea1b2de1c7,
+        type: 3}
+      propertyPath: StepSound
+      value: 
+      objectReference: {fileID: 1454235844}
     - target: {fileID: 7509996756713383924, guid: 4b5e5514e64b8a04a89bccea1b2de1c7,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2971,6 +2996,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1454235842}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1454235844 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8505127879277575573, guid: 4b5e5514e64b8a04a89bccea1b2de1c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1454235842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1454235852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3058,8 +3089,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3370,8 +3401,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
