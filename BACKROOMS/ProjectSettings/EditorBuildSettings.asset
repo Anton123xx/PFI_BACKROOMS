@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/EvolveGames/RealisticFPSController/Scenes/DemoScene.unity
     guid: ab0b46e2e44b5d14f99aff193b77d1c2
+  - enabled: 1
+    path: Assets/Scenes/Procedural.unity
+    guid: 203072f7a11a8dd4dad7ae99eb1050da
+  - enabled: 1
+    path: Assets/Scenes/Monster_testing.unity
+    guid: 9f4a4bf0e94a60645b4a93ea0122b726
   m_configObjects: {}

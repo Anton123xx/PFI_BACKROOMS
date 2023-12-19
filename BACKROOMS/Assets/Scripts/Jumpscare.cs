@@ -31,7 +31,7 @@ public class Jumpscare : MonoBehaviour
         jumpScareCam.SetActive(true);
         player.SetActive(false);
         yield return new WaitForSeconds(jumpscareTimer);
-        //SceneManager.LoadScene(scenename);
+        SceneManager.LoadScene(scenename);
     }
 
 }

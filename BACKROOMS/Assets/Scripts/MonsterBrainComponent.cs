@@ -43,8 +43,6 @@ public class MonsterBrainComponent : MonoBehaviour
     private void Awake()
     {
 
-        NavMesh.RemoveAllNavMeshData();
-
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -88,7 +86,8 @@ public class MonsterBrainComponent : MonoBehaviour
             if (animator.GetBool("CHASE"))
             {
                 navMeshAgent.destination = player.transform.position;
-                aS.PlayOneShot(startRun);
+                aS.clip = runLoop;
+                aS.Play();
                 //if (!aS.isPlaying)
                 //{
                 //    aS.PlayOneShot(runLoop);
@@ -99,22 +98,22 @@ public class MonsterBrainComponent : MonoBehaviour
 
             navMeshAgent.destination = player.transform.position;
         }
-        else if (animator.GetBool("MOVE"))
+        else if (DestinationComplete())
         {
             GoToNextNode();
         }
-
-
-        
-        //navMeshAgent.destination = this.transform.position;
-        
-
-
-
-
-
     }
 
+
+    public bool DestinationComplete()
+    {
+
+        if (navMeshAgent.destination == null)
+            return true;
+        if(Vector3.Distance(transform.position, navMeshAgent.destination) <= 3)
+            return true;
+        else return false;
+    }
 
 
 

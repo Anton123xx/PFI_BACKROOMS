@@ -90,7 +90,7 @@ public class GenerationManager : MonoBehaviour
 
     public void GenerateWorld()
     {
-
+        GameObject exitRoom = null;
         for (int i = 0; i < mapEmptiness; i++)
         {
             RoomTypes.Add(E_Room);
@@ -177,13 +177,13 @@ public class GenerationManager : MonoBehaviour
                     int roomToReplace = Random.Range(0, GeneratedRooms.Count);
 
 
-                    GameObject exitRoom = Instantiate(ExitRoom, GeneratedRooms[roomToReplace].transform.position, Quaternion.identity, WorldGrid);
+                    exitRoom = Instantiate(ExitRoom, GeneratedRooms[roomToReplace].transform.position, Quaternion.identity, WorldGrid);
 
                     Destroy(GeneratedRooms[roomToReplace]);
 
                     GeneratedRooms[roomToReplace] = exitRoom;
 
-                    SpawnMonster(exitRoom);
+                    
                     break;
                 case GenerationState.GeneratingPatrolRooms:
 
@@ -215,6 +215,8 @@ public class GenerationManager : MonoBehaviour
             }
         }
 
+        SpawnPlayer();
+        SpawnMonster(exitRoom);
         ///BuildNavMesh();
 
     }
@@ -238,7 +240,7 @@ public class GenerationManager : MonoBehaviour
         //SpawnMonster();
         //BuildNavM();
         //Activates monster
-        MonsterObject.SetActive(true);
+
 
         Debug.Log(CanvasOption);
         CanvasOption.SetActive(false);
@@ -260,14 +262,15 @@ public class GenerationManager : MonoBehaviour
         //MonsterObject.SetActive(false);
 
       
-        MonsterObject.transform.position = new Vector3(endRoom.transform.position.x, 1.8f, endRoom.transform.position.z);
-
-
+        
         ////buids navmesh for monster
         BuildNavM();
+        MonsterObject = Instantiate(MonsterObject);
 
-       
- 
+        MonsterObject.transform.position = new Vector3(endRoom.transform.position.x, 0, endRoom.transform.position.z);
+        MonsterObject.SetActive(true);
+
+
     }
 
 
