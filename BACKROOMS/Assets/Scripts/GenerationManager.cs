@@ -178,7 +178,7 @@ public class GenerationManager : MonoBehaviour
 
                     GeneratedRooms[roomToReplace] = exitRoom;
 
-                    SpawnMonster();
+                    SpawnMonster(exitRoom);
                     break;
                 case GenerationState.GeneratingPatrolRooms:
 
@@ -246,13 +246,13 @@ public class GenerationManager : MonoBehaviour
     }
 
 
-    public void SpawnMonster()
+    public void SpawnMonster(GameObject exitRoom)
     {
 
         //MonsterObject.SetActive(false);
-
+        Debug.Log(exitRoom.transform.position.x);
       
-        MonsterObject.transform.position = new Vector3(monsterSpawnRoom.transform.position.x, 1.14f, monsterSpawnRoom.transform.position.z);
+        MonsterObject.transform.position = new Vector3(exitRoom.transform.position.x, 1.14f, exitRoom.transform.position.z);
 
 
         ////buids navmesh for monster
