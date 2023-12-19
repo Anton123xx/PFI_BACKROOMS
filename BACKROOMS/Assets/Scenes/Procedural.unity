@@ -625,10 +625,12 @@ MonoBehaviour:
   MainCameraObject: {fileID: 395461057}
   MonsterObject: {fileID: 1454235843}
   surface: {fileID: 270794699}
+  CanvasOption: {fileID: 195961770}
   mapEmptiness: 9
   mapBrightness: 0
   roomSize: 7
   currentState: 0
+  nav: {fileID: 270794701}
   spawnRoom: {fileID: 3910410183286702000, guid: 6bde065109161bd42a155f3a9dfddcc1,
     type: 3}
   monsterSpawnRoom: {fileID: 3910410183286702000, guid: f084e092a6f7df546b9be1901df6d603,
@@ -692,8 +694,9 @@ MonoBehaviour:
   m_TileSize: 256
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
-  m_BuildHeightMesh: 0
+  m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
+  m_BuildHeightMesh: 0
 --- !u!1 &316250272
 GameObject:
   m_ObjectHideFlags: 0
@@ -3117,6 +3120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.y
       value: 1.6293589
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505127879277575579, guid: 4b5e5514e64b8a04a89bccea1b2de1c7,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8505127879278317579, guid: 4b5e5514e64b8a04a89bccea1b2de1c7,
         type: 3}
