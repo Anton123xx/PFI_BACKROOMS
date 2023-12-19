@@ -17,12 +17,12 @@ public class ExitRoomComponent : MonoBehaviour
         {
             Time.timeScale = 0;
             Partage.stopTimer();
-            Cam.SetActive(true);
-            Player.SetActive(false);
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
             MenuWin.SetActive(true);
-            //SceneManager.LoadScene("WinScene");
+            Cam.SetActive(true);
+            Player.SetActive(false);
+            SceneManager.LoadScene("WinScene");
             //Partage.winSceneScript.faire();
         }
         //afficher menu mort

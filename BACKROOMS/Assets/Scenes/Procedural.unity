@@ -2962,17 +2962,22 @@ PrefabInstance:
     - target: {fileID: 6094033623053523381, guid: a01c7516e659bdf4b9897ab54df69b69,
         type: 3}
       propertyPath: m_Intensity
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6094033623053523381, guid: a01c7516e659bdf4b9897ab54df69b69,
         type: 3}
       propertyPath: m_SpotAngle
-      value: 92
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 6094033623053523381, guid: a01c7516e659bdf4b9897ab54df69b69,
         type: 3}
       propertyPath: m_InnerSpotAngle
-      value: 9
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094033623053523381, guid: a01c7516e659bdf4b9897ab54df69b69,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a01c7516e659bdf4b9897ab54df69b69, type: 3}
