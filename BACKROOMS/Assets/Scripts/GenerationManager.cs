@@ -231,7 +231,7 @@ public class GenerationManager : MonoBehaviour
 
         //spawn de monster
         //SpawnMonster();
-        BuildNavMesh();
+        //BuildNavMesh();
         //Activates monster
         MonsterObject.SetActive(true);
     }
@@ -252,11 +252,11 @@ public class GenerationManager : MonoBehaviour
         //MonsterObject.SetActive(false);
         Debug.Log(exitRoom.transform.position.x);
       
-        MonsterObject.transform.position = new Vector3(exitRoom.transform.position.x, 1.14f, exitRoom.transform.position.z);
+        MonsterObject.transform.position = new Vector3(exitRoom.transform.position.x, 1.8f, exitRoom.transform.position.z);
 
 
         ////buids navmesh for monster
-        //BuildNavMesh();
+        BuildNavMesh();
 
        
  
