@@ -61,6 +61,10 @@ namespace EvolveGames
         float RunningValue;
         float installGravity;
         bool WallDistance;
+        private void Awake()
+        {
+            Partage.playerController= this;
+        }
         [HideInInspector] public float WalkingValue;
         void Start()
         {
@@ -75,6 +79,8 @@ namespace EvolveGames
             RunningValue = RuningSpeed;
             installGravity = gravity;
             WalkingValue = walkingSpeed;
+
+            Partage.startTimer();
         }
 
         void Update()

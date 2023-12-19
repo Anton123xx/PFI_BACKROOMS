@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Monster_testing.unity
     guid: 9f4a4bf0e94a60645b4a93ea0122b726
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 5f9d3eddc0e6a3044bc25d2980276708
   m_configObjects: {}

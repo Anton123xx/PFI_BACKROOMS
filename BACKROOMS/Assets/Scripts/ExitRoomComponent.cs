@@ -21,6 +21,8 @@ public class ExitRoomComponent : MonoBehaviour
             Cursor.visible = true;
             Time.timeScale = 0;
             MenuWin.SetActive(true);
+            SceneManager.LoadScene("WinScene");
+            Partage.winSceneScript.faire();
         }
         //afficher menu mort
     }

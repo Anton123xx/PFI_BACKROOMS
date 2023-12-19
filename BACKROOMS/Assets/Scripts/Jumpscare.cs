@@ -45,8 +45,7 @@ public class Jumpscare : MonoBehaviour
     public void Replay()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Procedural");
-
+        SceneManager.LoadScene("WinScene");
     }
 
 }
