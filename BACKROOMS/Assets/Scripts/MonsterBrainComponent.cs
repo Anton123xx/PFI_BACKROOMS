@@ -43,7 +43,7 @@ public class MonsterBrainComponent : MonoBehaviour
     private void Awake()
     {
 
-
+        NavMesh.RemoveAllNavMeshData();
 
         if (player == null)
         {

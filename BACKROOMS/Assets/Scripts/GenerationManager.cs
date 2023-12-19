@@ -49,6 +49,7 @@ public class GenerationManager : MonoBehaviour
     [SerializeField] GameObject PlayerObject, playerCanvas, MainCameraObject, MonsterObject;
 
     [SerializeField] GameObject surface;
+    [SerializeField] GameObject CanvasOption;
 
     [Header("Settings")]
     public int mapEmptiness; //chance of empty room spawning in
@@ -65,8 +66,12 @@ public class GenerationManager : MonoBehaviour
 
     public GenerationState currentState;
 
+    [SerializeField] Unity.AI.Navigation.NavMeshSurface nav;
 
-
+    private void Start()
+    {
+        Debug.Log(surface);
+    }
     private void Update()
     {
         mapSize = (int)Mathf.Pow(MapSizeSlider.value, 4);
@@ -231,32 +236,35 @@ public class GenerationManager : MonoBehaviour
 
         //spawn de monster
         //SpawnMonster();
-        //BuildNavMesh();
+        BuildNavM();
         //Activates monster
         MonsterObject.SetActive(true);
+
+        Debug.Log(CanvasOption);
+        CanvasOption.SetActive(false);
     }
 
-    public void BuildNavMesh()
+    public void BuildNavM()
     {
 
         surface.transform.position = MonsterObject.transform.position;
         surface.SetActive(true);
-        surface.GetComponent<NavMeshSurface>().BuildNavMesh();
+        nav.BuildNavMesh();
 
     }
 
 
-    public void SpawnMonster(GameObject exitRoom)
+    public void SpawnMonster(GameObject endRoom)
     {
 
         //MonsterObject.SetActive(false);
-        Debug.Log(exitRoom.transform.position.x);
+
       
-        MonsterObject.transform.position = new Vector3(exitRoom.transform.position.x, 1.8f, exitRoom.transform.position.z);
+        MonsterObject.transform.position = new Vector3(endRoom.transform.position.x, 1.14f, endRoom.transform.position.z);
 
 
         ////buids navmesh for monster
-        BuildNavMesh();
+        //BuildNavMesh();
 
        
  
