@@ -303,6 +303,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -148
       objectReference: {fileID: 0}
+    - target: {fileID: 6132875645262810884, guid: bf29f9782da4ffc428913277bb36777a,
+        type: 3}
+      propertyPath: m_text
+      value: Retour
+      objectReference: {fileID: 0}
     - target: {fileID: 7204587248481741042, guid: bf29f9782da4ffc428913277bb36777a,
         type: 3}
       propertyPath: m_Enabled
