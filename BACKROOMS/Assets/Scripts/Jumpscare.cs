@@ -28,7 +28,7 @@ public class Jumpscare : MonoBehaviour
 
     IEnumerator JumpScarePlayer()
     {
-        jumpScareCam.transform.position = jumpScareCamPos.position + new Vector3(0.5f,0,1);
+        jumpScareCam.transform.position = jumpScareCamPos.position + new Vector3(0.5f,0,2);
         jumpScareSound.Play();
         jumpScareCam.SetActive(true);
         player.SetActive(false);
@@ -45,6 +45,7 @@ public class Jumpscare : MonoBehaviour
     public void Replay()
     {
         Time.timeScale = 1;
+        //SceneManager.LoadScene("Procedural");
         SceneManager.LoadScene("WinScene");
     }
 

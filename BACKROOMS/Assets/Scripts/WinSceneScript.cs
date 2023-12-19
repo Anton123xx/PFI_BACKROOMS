@@ -24,7 +24,7 @@ public class WinSceneScript : MonoBehaviour
     {
     //https://stackoverflow.com/questions/8038994/display-float-as-string-with-at-least-1-decimal-place
         float temps = Partage.stopTimer();
-        txt.text = "Vous avez trouvé la sortie... en " + temps.ToString("F1");
+        txt.text = "Partie fini... en " + temps.ToString("F1") + "s";
         clickBtn.onClick.AddListener(() => { SceneManager.LoadScene("Procedural"); });
     }
     public void clicked()

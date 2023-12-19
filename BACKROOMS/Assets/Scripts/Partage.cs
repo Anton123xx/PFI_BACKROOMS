@@ -28,6 +28,10 @@ public class Partage : MonoBehaviour
     {
         boolTimer = true;
     }
+    public static void resetTimer()
+    {
+        timerTemps = 0;
+    }
     public static float stopTimer()
     {
         boolTimer= false;

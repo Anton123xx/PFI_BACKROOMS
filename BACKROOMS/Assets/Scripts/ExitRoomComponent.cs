@@ -15,14 +15,15 @@ public class ExitRoomComponent : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            Time.timeScale = 0;
+            Partage.stopTimer();
             Cam.SetActive(true);
             Player.SetActive(false);
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
-            Time.timeScale = 0;
             MenuWin.SetActive(true);
-            SceneManager.LoadScene("WinScene");
-            Partage.winSceneScript.faire();
+            //SceneManager.LoadScene("WinScene");
+            //Partage.winSceneScript.faire();
         }
         //afficher menu mort
     }
@@ -30,6 +31,7 @@ public class ExitRoomComponent : MonoBehaviour
     public void restart()
     {
         Time.timeScale = 1;
+        //SceneManager.LoadScene("WinScene");
         SceneManager.LoadScene("Procedural");
     }
 }

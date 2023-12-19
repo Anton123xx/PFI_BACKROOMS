@@ -201,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 1960375961780324347, guid: bf29f9782da4ffc428913277bb36777a,
         type: 3}
       propertyPath: m_text
-      value: "Vous avez trouv\xE9 la sortie.. en 33.2s"
+      value: Partie fini.. en 33.2s
       objectReference: {fileID: 0}
     - target: {fileID: 1960375961780324347, guid: bf29f9782da4ffc428913277bb36777a,
         type: 3}

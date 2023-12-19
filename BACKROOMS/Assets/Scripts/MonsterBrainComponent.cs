@@ -89,6 +89,10 @@ public class MonsterBrainComponent : MonoBehaviour
                     aS.clip = runLoop;
                     aS.Play();
                 }
+                else
+                    {
+                    animator.SetTrigger("CHASE");
+                }
             }
             else if (DestinationComplete())
             {

@@ -61,6 +61,10 @@ namespace EvolveGames
         float RunningValue;
         float installGravity;
         bool WallDistance;
+
+        [SerializeField] GameObject light;
+        bool lightOn = true;
+
         private void Awake()
         {
             Partage.playerController= this;
@@ -80,6 +84,7 @@ namespace EvolveGames
             installGravity = gravity;
             WalkingValue = walkingSpeed;
 
+            Partage.resetTimer();
             Partage.startTimer();
         }
 
@@ -151,6 +156,14 @@ namespace EvolveGames
                 WallDistance = Physics.Raycast(GetComponentInChildren<Camera>().transform.position, transform.TransformDirection(Vector3.forward), out ObjectCheck, HideDistance, LayerMaskInt);
                 Items.ani.SetBool("Hide", WallDistance);
                 Items.DefiniteHide = WallDistance;
+            }
+
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                if(light.gameObject.activeSelf)
+                { light.gameObject.SetActive(false); }
+                else
+                { light.gameObject.SetActive(true); }   
             }
         }
 
